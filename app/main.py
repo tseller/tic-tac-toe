@@ -18,17 +18,3 @@ if st.session_state.chat_history:
     st.write(st.session_state.chat_history[-1])
 
 st.chat_input(on_submit=update_history, key='chat_input')
-
-# Inject custom CSS to change the background color to blue, the font, and the font color
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: red;
-        font-family: 'serif', sans-serif;
-        color: black;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
