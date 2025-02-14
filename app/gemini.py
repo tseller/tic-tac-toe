@@ -14,9 +14,12 @@ def generate_image(prompt):
     response = generation_model.generate_images(
             prompt=prompt, number_of_images=1)
 
-    filename = random_string() + ".jpg"
-    response.images[0].save(filename)
-    return filename
+    if response.images:
+        filename = random_string() + ".jpg"
+        response.images[0].save(filename)
+        return filename
+
+    return None
 
 
 model = GenerativeModel("gemini-1.5-flash-002")
